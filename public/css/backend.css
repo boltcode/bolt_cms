@@ -1,0 +1,45 @@
+* {
+	padding			: 0;
+	margin			: 0;
+	text-decoration	: none;
+	font			: 12px Verdana, Dejavu Sans;
+}
+
+#menu {
+	background	: #C0D9E9;
+	display		: table;
+	width		: 100%;
+}
+
+#menu ul li {
+	display	: inline;
+}
+
+#menu ul li a {
+	background		: #C0D9E9;
+	color			: #000;
+	font-size		: 14px;
+	padding			: 10px;
+	float			: left;
+	border-right	: 1px solid #A0B7C7;
+}
+
+#menu ul li a:hover {
+	background	: #D1EAEF;
+}
+
+#footer {
+	position	: fixed;
+	bottom		: 0;
+	padding		: 10px 0;
+	background	: #C0D9E9;
+	width		: 100%;
+	text-align	: center;
+	color		: #000;
+	font-size	: 11px;
+	border-top	: 1px solid #707F3D;
+}
+
+#content {
+	border:1px solid red;
+}
