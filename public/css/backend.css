@@ -5,27 +5,13 @@
 	font			: 12px Verdana, Dejavu Sans;
 }
 
-#menu {
-	background	: #C0D9E9;
-	display		: table;
-	width		: 100%;
+#content {
+	padding: 10px;
 }
 
-#menu ul li {
-	display	: inline;
-}
-
-#menu ul li a {
-	background		: #C0D9E9;
-	color			: #000;
-	font-size		: 14px;
-	padding			: 10px;
-	float			: left;
-	border-right	: 1px solid #A0B7C7;
-}
-
-#menu ul li a:hover {
-	background	: #D1EAEF;
+h2 {
+	font-weight		: bold;
+	font-size		: 15px;
 }
 
 #footer {
@@ -37,9 +23,98 @@
 	text-align	: center;
 	color		: #000;
 	font-size	: 11px;
-	border-top	: 1px solid #707F3D;
+	border-top	: 1px solid #A0B7C7;
 }
 
-#content {
-	border:1px solid red;
+/* MENU */
+#menu {
+	background		: url(../images/menuBackground.png) repeat-x;
+	display			: table;
+	width			: 100%;
+	border-bottom	: 1px solid #AAA;
 }
+
+#menu ul li a {
+	background		: url(../images/menuBackground.png) repeat-x;
+	color			: #000;
+	font-size		: 14px;
+	padding			: 10px;
+	float			: left;
+	border-right	: 1px solid #BBB;
+}
+
+.nav, .nav ul { 
+	list-style	: none;
+	margin		: 0;
+	padding		: 0;
+}
+
+.nav {
+  z-index		: 100;
+  position		: relative;
+}
+.nav li {
+  border-left	: 1px solid #A0B7C7;
+  float			: left;
+  margin		: 0;
+  padding		: 0;
+  position		: relative;
+}
+.nav li a, .nav li a:link, .nav li a:active, .nav li a:visited {
+  background		: #C0D9E9;
+  color				: #000;
+  display			: block;
+  padding			: 0 10px;
+  text-decoration	: none;
+}
+
+.nav li a:hover {
+  background	: url(../images/menuBackgroundHover.png) repeat-x;
+  color			: #000;	
+
+}
+#nav-one li:hover a, 
+#nav-one li.sfHover a {
+  background	: url(../images/menuBackgroundHover.png) repeat-x;
+  color			: #000;
+}
+#nav-one li:hover ul a, 
+#nav-one li.sfHover ul a {
+  background	: url(../images/menuBackground.png) repeat-x;
+  color			: #000;	
+}
+#nav-one li:hover ul a:hover, 
+#nav-one li.sfHover ul a:hover {
+  background	: url(../images/menuBackgroundHover.png) repeat-x;
+  color			: #000;	
+}
+
+.nav ul {
+  background		: url(../images/menuBackground.png) repeat-x;
+  border-bottom		: 1px solid #AAA;
+  list-style		: none;
+  margin			: 0;
+  width				: 202px;
+  position			: absolute;
+  top				: -999em;
+  left				: -1px;
+}
+.nav li:hover ul,
+.nav li.sfHover ul {
+  top	: 37px;
+}
+.nav ul li {
+  border	: 0;
+  float		: none;
+}
+.nav ul a {
+  border		: 1px solid #AAA;
+  border-bottom	: 0;
+  width			: 180px;
+  white-space	: nowrap;
+}
+.nav ul a:hover {
+  background	: url(../images/menuBackgroundHover.png) repeat-x;
+}
+
+/* /MENU */
