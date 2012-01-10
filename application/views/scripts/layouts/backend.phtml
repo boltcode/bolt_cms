@@ -8,11 +8,13 @@
 			//$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/960gs/text.css' );
 			//$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/960gs/960.css' );
 			$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/backend.css' );
+			$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/uniform.default.css' );
 			//$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/jqtransform.css' );
 			
 			// Add JS
 			$this->headScript()->prependFile( $this->BaseUrl() . '/js/backend.js' );
 			//$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery.jqtransform.js' );
+			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery.uniform.min.js' );
 			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery-1.7.1.min.js' );
 			
 			// Carregando o css e o javascript
