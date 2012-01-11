@@ -24,13 +24,23 @@
 		<div id="menu">
 			<ul id="nav-one" class="nav">
 				<li>
-					<a href="#">Administrar</a>
-					<ul>
+					<a href="#">Grupos</a>
+					<ul class="submenu">
 						<li><a href="<?php echo $this->BaseUrl(); ?>/group">Listar grupos</a></li>
 						<li><a href="<?php echo $this->BaseUrl(); ?>/group/add">Adicionar grupo</a></li>
-						<li><a href="<?php echo $this->BaseUrl(); ?>/group/permissions">Permissões de Grupo</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Usuários</a>
+					<ul class="submenu">
 						<li><a href="<?php echo $this->BaseUrl(); ?>/user">Listar usuários</a></li>
 						<li><a href="<?php echo $this->BaseUrl(); ?>/user/add">Adicionar usuário</a></li>
+					</ul>
+				<li>
+					<a href="#">Permissões</a>
+					<ul class="submenu">
+						<li><a href="<?php echo $this->BaseUrl(); ?>/permission">Listar permissões</a></li>
+						<li><a href="<?php echo $this->BaseUrl(); ?>/permission/add">Adicionar permissões</a></li>
 					</ul>
 				</li>
 			</ul>
