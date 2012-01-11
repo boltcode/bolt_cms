@@ -7,6 +7,22 @@
 	list-style-type				: none;
 }
 
+#header
+{
+	background					: url(../images/headerBackground.png) repeat-x;
+	height						: 59px;
+}
+
+#header #system_name
+{
+	color						: #FFF;
+	font-size					: 25px;
+	font-weight					: bold;
+	line-height					: 58px;
+	margin						: 0 0 0 10px;
+	text-shadow					: 0px 0px 7px #000; 
+}
+
 #content
 {
 	padding						: 10px;

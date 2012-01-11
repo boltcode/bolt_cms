@@ -1,3 +1,6 @@
 jQuery(document).ready(function(){
-	jQuery('input, select').uniform();
+	
+	// Aplicando estilo aos formulários
+	jQuery('input, select, textarea').uniform();
+	
 });

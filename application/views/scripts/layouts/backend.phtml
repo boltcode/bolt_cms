@@ -9,9 +9,11 @@
 			//$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/960gs/960.css' );
 			$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/backend.css' );
 			$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/uniform.default.css' );
+			$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/jquery.jgrowl.css' );
 			
 			// Add JS
 			$this->headScript()->prependFile( $this->BaseUrl() . '/js/backend.js' );
+			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery.jgrowl.js' );
 			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery.uniform.min.js' );
 			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery-1.7.1.min.js' );
 			
@@ -21,6 +23,9 @@
 		?>
 	</head>
 	<body>
+		<div id="header">
+			<span id="system_name">Nome do Sistema</span>
+		</div>
 		<div id="menu">
 			<ul id="nav-one" class="nav">
 				<li>
@@ -50,6 +55,8 @@
 			<?php 
 				echo $this->layout()->content;
 			?>
+			
+			<div id="notification" class="jGrowl bottom-right"></div>
 		</div>
 		
 		<div id="footer">Desenvolvedor: Diogo Alexsander Cavilha</div>

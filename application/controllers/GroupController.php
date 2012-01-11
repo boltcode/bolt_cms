@@ -34,7 +34,16 @@ class GroupController extends Zend_Controller_Action
 			
 			if ( $form->isValid( $data ) )
 			{
-				echo 'salvar';
+				$group = new Application_Model_Group();
+				
+				if ( $group->_insert( $data ) )
+				{
+					$this->view->notificationMessage = 'Grupo cadastrado com sucesso!';
+				}
+				else
+				{
+					$this->view->notificationMessage = 'Erro ao cadastrar grupo!';
+				}
 			}
 		}
 		
