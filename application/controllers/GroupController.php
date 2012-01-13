@@ -13,7 +13,16 @@ class GroupController extends Zend_Controller_Action
 	 */
 	public function indexAction()
 	{
-		$this->view->testMessage = 'GroupController - indexAction()';
+		$grid = new Bolt_Grid_Grid();
+		
+		$grid->setHeader(
+			array(
+				new Bolt_Grid_Header( 'Código', 150 ),
+				new Bolt_Grid_Header( 'Nome', 50 )
+			)
+		);
+		
+		$this->view->grid = $grid->show();
 	}
 	
 	public function permissionsAction()
@@ -22,7 +31,7 @@ class GroupController extends Zend_Controller_Action
 	}
 	
 	/**
-	 * Exibe o formul�rio de cadastro dos grupos.
+	 * Exibe o formulário de cadastro dos grupos.
 	 */
 	public function addAction()
 	{

@@ -20,14 +20,14 @@ class Application_Form_Group extends Zend_Form
 			->removeDecorator( 'DtDdWrapper' );
 		
 		// Bot�o Cadastrar
-		$btSubmit = new Zend_Form_Element_Submit( 'Cadastrar' );
+		$btCadastrar = new Zend_Form_Element_Submit( 'Cadastrar' );
 		
-		$btSubmit->removeDecorator( 'HtmlTag' );
+		$btCadastrar->removeDecorator( 'HtmlTag' );
 		
 		$elements = array
 		(
 			$name,
-			$btSubmit
+			$btCadastrar
 		);
 		
 		return $elements;

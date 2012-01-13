@@ -31,4 +31,27 @@ class Application_Model_Group extends Zend_Db_Table
 			return false;
 		}
 	}
+	
+	/**
+	 * Retorna os grupos cadastrados.
+	 * 
+	 * @return array groups Grupos cadastrados
+	 */
+	public function getGroups()
+	{
+		try
+		{
+			$data = $this->fetchAll()->toArray();
+
+			foreach ( $data as $group )
+			{
+				$groups[$group['id']] = $group['nome'];
+			}
+			return $groups;
+		}
+		catch( Zend_Db_Exception $e )
+		{
+			echo $e->getMessage();
+		}
+	}
 }

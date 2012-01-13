@@ -31,7 +31,8 @@
 h2
 {
 	font-weight					: bold;
-	font-size					: 15px;
+	font-size					: 18px;
+	padding						: 0px 0px 25px 0px;
 }
 
 #footer
@@ -39,7 +40,7 @@ h2
 	position					: fixed;
 	bottom						: 0;
 	padding						: 10px 0;
-	background					: #C0D9E9;
+	background					: url(../images/headerBackground.png) repeat-x;
 	width						: 100%;
 	text-align					: center;
 	color						: #000;
@@ -171,7 +172,8 @@ h2
 /* FORM */
 form dt
 {
-	clear:both;
+	clear						: both;
+	padding						: 10px 0px 0px 0px;
 }
 form input
 {
