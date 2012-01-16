@@ -1,37 +1,75 @@
 <?php
 
-class Bolt_Grid_Grid
+class Bolt_Grid_Grid extends Zend_Db_Table
 {
-	private $body;
-	private $header;
+	protected $_name;
 	
-	public function __construct()
+	private $dom;
+	private $columnLabel	= array();
+	private $columnRegister	= array();
+	private $columnWidth	= array();
+	
+	public function __construct($table)
 	{
-		$this->body = '<table>';
+		$this->_name	= $table;
+		$this->dom		= new DOMDocument();
 	}
 	
 	/**
-	 * Cria a estrutura do cabeçalho da grid.
-	 * @param array $header Dados do cabeçalho.
+	 * Configuração das colunas da grid.
+	 * 
+	 * @param string $label		Título da coluna.
+	 * @param string $field		Campo da tabela que deve ser listado na coluna.
+	 * @param integer $width	Largura da coluna em px.
 	 */
-	public function setHeader(array $header)
+	public function addColumn($label, $field, $width = 50)
 	{
+		$this->columnLabel[]	= $label;
+		$this->columnRegister[]	= $field;
+		$this->columnWidth[]	= $width;
+	}
+	
+	/**
+	 * Cria a estrutura do cabealho da grid.
+	 */
+	public function createHeader()
+	{
+		$table = $this->dom->createElement( 'table' );
+		$table = $this->dom->appendChild( $table );
+		
+		$tr = $this->dom->createElement( 'tr' );
+		$tr = $table->appendChild( $tr );
+		
 		$i = 0;
-		$this->header = '<tr>';
-		while ( $i < ( sizeof( $header ) ) )
+		
+		while ( $i < count( $this->columnLabel ) )
 		{
-			$this->header .= "<td style='width:" . $header[$i]->getWidth() . "px'>" . $header[$i]->getTitle() . "</td>";
+			$td = $this->dom->createElement( 'td', $this->columnLabel[$i] );
+			$td = $tr->appendChild( $td );
+			
 			$i++;
 		}
-		
-		$this->header .= '</tr>';
+	}
+	
+	public function query()
+	{
+		try
+		{
+			$teste = 'teste';
+			
+			var_dump( $teste );
+			exit();
+		}
+		catch ( Zend_Db_Exception $e )
+		{
+			echo $e->getMessage();
+		}
 	}
 	
 	public function show()
 	{
-		$this->body .= $this->header;
-		$this->body .= '</table>';
-		
-		return $this->body;
+		$this->query();
+		$this->createHeader();
+		return $this->dom->saveHTML();
 	}
 }

@@ -13,14 +13,10 @@ class GroupController extends Zend_Controller_Action
 	 */
 	public function indexAction()
 	{
-		$grid = new Bolt_Grid_Grid();
+		$grid = new Bolt_Grid_Grid( 'grupo' );
 		
-		$grid->setHeader(
-			array(
-				new Bolt_Grid_Header( 'Código', 150 ),
-				new Bolt_Grid_Header( 'Nome', 50 )
-			)
-		);
+		$grid->addColumn( 'Código', 'id', 50 );
+		$grid->addColumn( 'Nome', 'nome', 90 );
 		
 		$this->view->grid = $grid->show();
 	}
