@@ -4,6 +4,12 @@ class PermissionController extends Zend_Controller_Action
 {
 	public function init()
 	{
+		$this->_flashMessenger 	= $this->_helper->getHelper( 'FlashMessenger' );
+		$this->view->messages	= $this->_flashMessenger->getMessages();
+		
+		$user = Zend_Auth::getInstance()->getIdentity();
+		$this->view->user = $user;
+		
 		$this->_helper->layout->setLayout( 'backend' );
 	}
 	
@@ -21,12 +27,14 @@ class PermissionController extends Zend_Controller_Action
 				
 				if ( $permission->_insert( $data ) )
 				{
-					$this->view->notificationMessage = 'Permissão cadastrada com sucesso!';
+					$message = 'Permissão cadastrada com sucesso!';
 				}
 				else
 				{
-					$this->view->notificationMessage = 'Erro ao cadastrar permissão';
+					$message = 'Erro ao cadastrar permissão';
 				}
+				
+				$this->_helper->FlashMessenger( $message );
 			}
 		}
 		

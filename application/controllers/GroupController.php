@@ -5,6 +5,12 @@ class GroupController extends Zend_Controller_Action
 	
 	public function init()
 	{
+		$this->_flashMessenger 	= $this->_helper->getHelper( 'FlashMessenger' );
+		$this->view->messages	= $this->_flashMessenger->getMessages();
+		
+		$user = Zend_Auth::getInstance()->getIdentity();
+		$this->view->user = $user;
+		
 		$this->_helper->layout->setLayout( 'backend' );
 	}
 	
@@ -43,12 +49,14 @@ class GroupController extends Zend_Controller_Action
 				
 				if ( $group->_insert( $data ) )
 				{
-					$this->view->notificationMessage = 'Grupo cadastrado com sucesso!';
+					$message = 'Grupo cadastrado com sucesso!';
 				}
 				else
 				{
-					$this->view->notificationMessage = 'Erro ao cadastrar grupo!';
+					$message = 'Erro ao cadastrar grupo!';
 				}
+				
+				$this->_helper->FlashMessenger( $message );
 			}
 		}
 		

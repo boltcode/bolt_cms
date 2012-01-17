@@ -13,6 +13,7 @@
 			
 			// Add JS
 			$this->headScript()->prependFile( $this->BaseUrl() . '/js/backend.js' );
+			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery.corner.js' );
 			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery.jgrowl.js' );
 			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery.uniform.min.js' );
 			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery-1.7.1.min.js' );
@@ -25,6 +26,15 @@
 	<body>
 		<div id="header">
 			<span id="system_name">Bolt CMS</span>
+			
+			<div class="usuario">
+				<span>
+					Nome: <?php echo $this->user->nome; ?><br />
+					Usuário: <?php echo $this->user->usuario; ?>
+				</span>
+				
+				<a id="logout" title="Fazer logout" href="<?php echo $this->BaseUrl(); ?>/login/logout"></a>
+			</div>
 		</div>
 		<div id="menu">
 			<ul id="nav-one" class="nav">
@@ -58,9 +68,9 @@
 			
 			<div id="notification" class="jGrowl bottom-right"></div>
 			
-			<?php if ( !empty( $this->notificationMessage ) ): ?>
+			<?php if ( sizeof( $this->messages ) > 0 ): ?>
 				<script type="text/javascript">
-					jQuery('#notification').jGrowl('<?php echo $this->notificationMessage; ?>', {header:'Aviso'});
+					jQuery('#notification').jGrowl('<?php echo $this->messages[0]; ?>', {header:'Aviso'});
 				</script>
 			<?php endif; ?>
 		</div>

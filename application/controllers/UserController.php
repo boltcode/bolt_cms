@@ -4,6 +4,12 @@ class UserController extends Zend_Controller_Action
 {
 	public function init()
 	{
+		$this->_flashMessenger 	= $this->_helper->getHelper( 'FlashMessenger' );
+		$this->view->messages	= $this->_flashMessenger->getMessages();
+		
+		$user = Zend_Auth::getInstance()->getIdentity();
+		$this->view->user = $user;
+		
 		$this->_helper->layout->setLayout( 'backend' );
 	}
 	
@@ -26,12 +32,14 @@ class UserController extends Zend_Controller_Action
 				
 				if ( $user->_insert( $data ) )
 				{
-					$this->view->notificationMessage = 'Usuário cadastrado com sucesso!';
+					$message = 'Usuário cadastrado com sucesso!';
 				}
 				else
 				{
-					$this->view->notificationMessage = 'Erro ao cadastrar usuário.';
+					$message = 'Erro ao cadastrar usuário.';
 				}
+				
+				$this->_helper->FlashMessenger( $message );
 			}
 		}
 		

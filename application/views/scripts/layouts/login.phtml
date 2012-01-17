@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Administração</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<?php
+			$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/login.css' );
+			$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/uniform.default.css' );
+			$this->headLink()->appendStylesheet( $this->BaseUrl() . '/css/jquery.jgrowl.css' );
+			
+			// Add JS
+			$this->headScript()->prependFile( $this->BaseUrl() . '/js/login.js' );
+			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery.corner.js' );
+			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery.jgrowl.js' );
+			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery.uniform.min.js' );
+			$this->headScript()->prependFile( $this->BaseUrl() . '/js/jquery-1.7.1.min.js' );
+			
+			// Carregando o css e o javascript
+			echo $this->headLink() . "\n\n\t\t";
+			echo $this->headScript();
+		?>
+	</head>
+	<body>
+		
+		<div id="content">
+			
+			<div id="login" class="corner">
+				<h3>Administração</h3>
+				<div id="icone" class="corner"></div>
+				<div id="form_login">
+					<?php 
+						echo $this->layout()->content;
+					?>
+				</div>
+			</div>
+			
+			<div id="notification" class="jGrowl bottom-right"></div>
+			
+			<?php if ( sizeof( $this->messages ) > 0 ): ?>
+				<script type="text/javascript">
+					jQuery('#notification').jGrowl('<?php echo $this->messages[0]; ?>', {header:'Aviso'});
+				</script>
+			<?php endif; ?>
+		</div>
+
+	</body>
+</html>

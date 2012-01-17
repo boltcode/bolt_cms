@@ -1,0 +1,54 @@
+@CHARSET "UTF-8";
+
+*
+{
+	font-family		: arial, dejavu sans;
+}
+
+body
+{
+	background		: #F0FFF0;
+}
+
+#login
+{
+	border			: 5px solid #D1EEEE;
+	width			: 440px;
+	margin			: 0 auto;
+	background		: #FFF;
+	height			: 245px;
+	margin-top		: 8em;
+}
+
+#login form label
+{
+	font-weight		: bold;
+	font-size		: 14px;
+}
+
+form ul.errors li
+{
+	color			: red;
+	margin			: 5px 0 0 3px;
+	font-weight		: bold;
+	font-size		: 11px;
+	list-style-type	: none;
+}
+
+h3
+{
+	border			: 1px solid #CCC;
+	padding			: 10px 0 10px 10px;
+	margin			: 5px;
+	background		: #C6E2FF; 
+}
+
+#login #icone
+{
+	border			: 1px solid #CCC;
+	float			: left;
+	height			: 185px;
+    width			: 130px;
+    margin			: 0 25px 0 5px;
+    background		: url(../images/loginIcone.png) no-repeat #FFFCCD 0; 
+}
